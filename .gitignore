@@ -1,0 +1,8 @@
+wp-admin/
+wp-includes/
+wp-content/languages/
+wp-content/upgrade/
+wp-content/index.php
+wp-*.php
+xmlrpc.php
+*.log

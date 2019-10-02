@@ -1,0 +1,43 @@
+#wizzard{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+    z-index: 9;
+    background-color: whitesmoke;
+    display: flex;
+}
+
+#wizzard.open{
+    display: flex;
+}
+
+#wizzard .card {
+    max-width: calc(100vw - 20px);
+    height: 50vh;
+    margin-top: 5vh;
+    background-color: white;
+}
+
+#wizzard .card .card-header{
+    background-color: blueviolet;
+    color: white;
+    font-size: 1rem;
+}
+
+#wizzard .card .card-footer button{
+    background-color: blueviolet;
+    color: white;
+    font-size: 1.2 rem;
+    padding: 10px;
+}
+
+.spa-page{
+    display: none;
+}
+
+.spa-page.current {
+    display: flex;
+}

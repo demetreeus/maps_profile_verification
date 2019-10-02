@@ -11,41 +11,38 @@
 if (is_active_sidebar('sidebar-1')) : ?>
     <script type="text/x-template" id="maps_verification_wizzard">
         <div id="wizzard" class="spa">
-            <div class="spa-page" data-page='1'>
+            <div class="spa-page current" data-page='1'>
                 <div class="card">
                     <div class="card-header">
-                        Business Information
+                        <h4>Business Information</h4>
                     </div>
                     <div class="card-body">
                         <form id="maps_verification_form">
                             <div class="form-group">
                                 <label>Name of Business</label>
-                                <input type="maps_company_name" />
+                                <input type="maps_company_name" placeholder="Name of Business"/>
                             </div>
                             <div class="form-group">
                                 <label>Name of Applicant</label>
-                                <input type="maps_company_name" />
+                                <input type="maps_company_name" placeholder="Name of Applicant"/>
                             </div>
                             <div class="form-group">
                                 <label>Company Name</label>
-                                <input type="maps_applicant_name" />
+                                <input type="maps_applicant_name" placeholder="Company Name"/>
                             </div>
                             <div class="form-group">
                                 <label>Telephone Number</label>
-                                <input type="maps_phone_number" />
-                            </div>
-                            <div class="form-group">
-                                <label>Document</label>
-                                <input type="file" />
+                                <input type="maps_phone_number" placeholder="Telephone Number"/>
                             </div>
                         </form>
                     </div>
                     <div class="card-footer">
-                        <button @click="nextPage(this)">Upload Document <i class="fa fa-next"></i></button>
+                        <button class="prev" @click="previousPage($event)"><i class="fa fa-arrow-left"></i>&nbsp;Back</button>
+                        <button class="next" @click="nextPage($event)">Continue <i class="fa fa-next"></i></button>
                     </div>
                 </div>
             </div>
-            <div class="" data-page='2'>
+            <div class="spa-page" data-page='2'>
                 <div class="card">
                     <div class="card-header">
                         <h4>Send Documentation</h4>
@@ -61,7 +58,7 @@ if (is_active_sidebar('sidebar-1')) : ?>
                             <li>Articles of incorporation</li>
                         </ul>
                         <div class="maps_document_uploader">
-                            <h3>Business Documentation</h3>
+                            <h5>Business Documentation</h5>
                             <div class="maps_document_formats_wrap">
                                 <p class="maps_document_formats">
                                     Please upload a file in one of these formats:
@@ -70,10 +67,18 @@ if (is_active_sidebar('sidebar-1')) : ?>
                                     .doc, .docx, .pdf, .jpg, .jpeg, .png
                                 </p>
                             </div>
+                            <div id="document_placeholder" class="hide">
+                                <img src='' />
+                            </div>
+                            <div class="form-group">
+                                <label>Document</label>
+                                <input id="document_input" type="file" accept=".doc, .docx, .pdf, image/*" />
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button @click="nextPage">Proceed and Pay <i class="fa fa-next"></i></button>
+                        <button class="prev" @click="previousPage($event)"><i class="fa fa-arrow-left"></i>&nbsp;Back</button>
+                        <button id="upload_button" class='disabled' @click="onUploadDocument($event, this)">Upload <i class="fa fa-next"></i></button>
                     </div>
                 </div>
                 
@@ -98,6 +103,7 @@ if (is_active_sidebar('sidebar-1')) : ?>
                             </div>
                         </div>
                         <div class="card-footer">
+                            <button class="prev" @click="previousPage($event)"><i class="fa fa-arrow-left"></i>&nbsp;Back</button>
                             <button>Submit Payment</button>
                         </div>
                 </form>

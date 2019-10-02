@@ -1,13 +1,21 @@
+:root {
+    --color-main: #0397A8;
+    --color-main-opaque: rgba(3, 152, 168, 0.555);
+    --font-color-main: rgb(85,85,85);
+    --border-color: rgb(155,155,155);
+}
+
 #wizzard{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     padding: 10px;
-    z-index: 9;
+    z-index: 99;
     background-color: whitesmoke;
-    display: flex;
+    display: none;
+    font-family: Poppins, serif;
 }
 
 #wizzard.open{
@@ -15,29 +23,92 @@
 }
 
 #wizzard .card {
-    max-width: calc(100vw - 20px);
-    height: 50vh;
+    max-width: 100%;
+    width: 100%;
+    display: inline-table;
     margin-top: 5vh;
     background-color: white;
 }
 
 #wizzard .card .card-header{
-    background-color: blueviolet;
+    background-color: var(--color-main);
     color: white;
     font-size: 1rem;
+    font-weight: 500;
+    padding: 10px;
 }
 
-#wizzard .card .card-footer button{
-    background-color: blueviolet;
+#wizzard .card-header h4{
+    margin: 0px
+}
+
+#wizzard .card-body{
+    padding: 35px 10px;
+    margin-bottom: 0px;
+    font-weight: 400;
+    font-size:0.8rem;
+    color: var(--font-color-main);
+
+}
+
+#wizzard .card .card-footer{
+    background-color: white;
     color: white;
-    font-size: 1.2 rem;
+    padding: 15px;
+    margin-top: 0px;
+    text-align: right;
+}
+#wizzard .card .card-footer button{
+    background-color: var(--color-main);
+    color: white;
+    font-size: 0.7 rem;
     padding: 10px;
 }
 
 .spa-page{
     display: none;
+    width: 100%;
 }
 
 .spa-page.current {
     display: flex;
+}
+
+#wizzard .form-group label{
+    display: none;
+}
+
+#wizzard .form-group {
+    width: 100%;
+}
+
+#wizzard .form-group input {
+    border: 1px solid var(--border-color);
+    width: 100%;
+    font-family: Poppins;
+    margin-bottom: 20px;
+    padding: 10px
+}
+
+.hide {
+    display: none !important;
+}
+
+.maps_document_uploader{
+    background-color: var(--color-main-opaque);
+    border: 1px solid var(--color-main);
+    border-radius: 2px;
+    padding: 10px;
+    color: white;
+}
+
+.maps_document_uploader input{
+    border-color: white;
+    background-color: white;
+    border-radius: 2px;
+    color: var(--color-main);
+}
+
+button.disabled{
+    opacity: 0.2 !important;
 }

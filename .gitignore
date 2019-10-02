@@ -2,6 +2,7 @@ wp-admin/
 wp-includes/
 wp-content/languages/
 wp-content/upgrade/
+wp-content/uploads/
 wp-content/index.php
 wp-*.php
 xmlrpc.php

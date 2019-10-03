@@ -7,3 +7,5 @@ wp-content/index.php
 wp-*.php
 xmlrpc.php
 *.log
+wp-content/plugins/masandpass/assets/js/node_modules/
+wp-content/plugins/masandpass/vendor/

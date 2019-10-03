@@ -55,8 +55,7 @@
 
 <?php wp_footer(); ?>
 <script>
-	var stripe = Stripe('pk_test_8rnpHKKbC0tlLpPFyVPd6B5L00ho5jl80B');
-	var elements = stripe.elements();
+	
 </script>
 </body>
 </html>

@@ -65,7 +65,13 @@
     font-size: 0.7 rem;
     padding: 10px;
 }
-
+.maps_document_formats {
+    margin: 4px 0px 0px 0px;
+    line-height: 20px;
+    position: relative;
+    top: -10px;
+    font-size: 16px;
+}
 .spa-page{
     display: none;
     width: 100%;
@@ -81,6 +87,7 @@
 
 #wizzard .form-group {
     width: 100%;
+    position: relative;
 }
 
 #wizzard .form-group input {
@@ -114,9 +121,22 @@ button.disabled{
     opacity: 0.2 !important;
 }
 
+.form-group span.warning {
+    position: absolute;
+    font-size: 14px;
+    top: 20%;
+    right: 10px;
+    color: var(--color-main);
+    display: none;
+}
+
+.form-group.warning span.warning {
+    display: block;
+}
+
 @media screen and (min-width: 600px){
     .spa-page {
         width: 600px;
-        margin: auto;
+        margin: 0 auto;
     }
 }

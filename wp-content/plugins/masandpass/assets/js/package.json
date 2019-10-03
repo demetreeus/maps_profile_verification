@@ -1,0 +1,15 @@
+{
+  "name": "masandpas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery-validation": "^1.19.1",
+    "sweetalert2": "^8.18.0"
+  }
+}

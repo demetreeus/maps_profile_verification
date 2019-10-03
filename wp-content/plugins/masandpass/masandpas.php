@@ -75,6 +75,33 @@ function maps_store_document($doc)
     }
 }
 
+function maps_handle_info()
+{
+    $input = $_POST;
+    $user_id = get_current_user_id();
+
+    // compose data
+    try{
+        foreach(['maps_company_name', 'maps_firstname', 'maps_lastname', 'maps_phone_number' ] as $field){
+            if(isset($_POST[$field])){
+                $meta[$field] = sanitize_text_field($_POST[$field]);
+            } else {
+                throw new Exception("aint like fields");
+            }
+        }
+
+        foreach($meta as $key => $value){
+            update_user_meta($user_id, $key, $value);
+        }
+    } catch(Exception $e) {
+        wp_send_json(['error' => $e->getMessage()], 418); 
+    }
+
+    wp_send_json(['success' => true]);
+}
+
 add_action('wp_enqueue_scripts', 'maps_load_vuescripts');
 add_action( 'wp_ajax_maps_document', 'maps_handle_document' );
 add_action( 'wp_ajax_nopriv_maps_document', 'maps_handle_document' );
+add_action( 'wp_ajax_maps_info', 'maps_handle_info' );
+add_action( 'wp_ajax_nopriv_maps_info', 'maps_handle_info' );

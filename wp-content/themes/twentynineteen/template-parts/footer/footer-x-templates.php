@@ -20,19 +20,19 @@ if (is_active_sidebar('sidebar-1')) : ?>
                         <form id="maps_verification_form">
                             <div class="form-group">
                                 <label>Name of Business</label>
-                                <input type="maps_company_name" placeholder="Name of Business"/>
+                                <input type="maps_company_name" required placeholder="Name of Business"/>
                             </div>
                             <div class="form-group">
-                                <label>Name of Applicant</label>
-                                <input type="maps_company_name" placeholder="Name of Applicant"/>
+                                <label>First Name</label>
+                                <input type="maps_firstname" required placeholder="First Name"/>
                             </div>
                             <div class="form-group">
-                                <label>Company Name</label>
-                                <input type="maps_applicant_name" placeholder="Company Name"/>
+                                <label>Last Name</label>
+                                <input type="maps_lastname" required placeholder="Last Name"/>
                             </div>
                             <div class="form-group">
                                 <label>Telephone Number</label>
-                                <input type="maps_phone_number" placeholder="Telephone Number"/>
+                                <input type="maps_phone_number" required placeholder="Telephone Number"/>
                             </div>
                         </form>
                     </div>

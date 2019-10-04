@@ -13,11 +13,13 @@ var app = new Vue({
       jQuery(".spa-page").removeClass('current');
       jQuery(".spa-page[data-page='1']").addClass('current');
     },
-    closeWizzard() {
+    closeWizzard(success = false) {
       jQuery('.um-profile').removeClass('hide');
       jQuery('#colophon').removeClass('hide');
       jQuery('#wizzard').removeClass('open');
-      jQuery("input[name^='user_verified_2']").prop('checked', false).trigger('change');
+      if(!success){
+        jQuery("input[name^='user_verified_2']").prop('checked', false).trigger('change');
+      }
     },
     nextPage() {
       var page = jQuery('.spa-page.current').attr('data-page');
@@ -87,6 +89,7 @@ var app = new Vue({
 
           if (response.status) {
             app.nextPage();
+            stopUploadAnimation();
           }
         })
         .catch(function (error) {
@@ -138,23 +141,29 @@ var app = new Vue({
     onUploadError() {
 
     },
+    onSubmitPayment() {
+      startUploadAnimation();
+    },
     onSuccess() {
       jQuery('.spa-page').removeClass('current');
       jQuery('#page-thanks').addClass('current');
+      jQuery("input[name^='user_verified_2']").prop('disabled', true);
+      stopUploadAnimation();
     },
     onFailure() {
       jQuery('.spa-page').removeClass('current');
       jQuery('#page-sorry').addClass('current');
+      stopUploadAnimation();
     }
   }
 });
 
 function startUploadAnimation() {
-  console.log('animation started');
+  jQuery('.has-loader').addClass('open');
 }
 
 function stopUploadAnimation() {
-  console.log('animation stopped');
+  jQuery('.has-loader').removeClass('open');
 }
 
 function showDocument(url) {
@@ -167,7 +176,7 @@ function showDocument(url) {
     if ($(this).is(':checked')) {
       app.openWizzard();
     }
-  })
+  });
 
   $("#document_input").on('change', function () {
     if (document.getElementById("document_input").files.length == 0) {
@@ -175,7 +184,13 @@ function showDocument(url) {
     } else {
       $('#upload_button').removeClass('disabled');
     }
-  })
+  });
+
+  $(document).ready(function(){
+    if($("").length) {
+      $("")
+    }
+  });
 })(jQuery);
 
 

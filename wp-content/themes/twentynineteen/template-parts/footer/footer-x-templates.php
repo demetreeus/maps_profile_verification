@@ -46,7 +46,7 @@ if (is_active_sidebar('sidebar-1')) : ?>
                     </div>
                     <div class="card-footer">
                         <button class="prev" @click="previousPage($event)"><i class="fa fa-arrow-left"></i>&nbsp;Back</button>
-                        <button class="next" @click="onInfo($event)">Continue <i class="fa fa-next"></i></button>
+                        <button class="next has-loader" @click="onInfo($event)">Continue <i class="fa fa-next"></i></button>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@ if (is_active_sidebar('sidebar-1')) : ?>
                     </div>
                     <div class="card-footer">
                         <button class="prev" @click="previousPage($event)"><i class="fa fa-arrow-left"></i>&nbsp;Back</button>
-                        <button id="upload_button" class='disabled' @click="onUploadDocument($event, this)">Upload Document <i class="fa fa-next"></i></button>
+                        <button id="upload_button" class='disabled has-loader' @click="onUploadDocument($event, this)">Upload Document <i class="fa fa-next"></i></button>
                         <button id="pay_button" class='hide' @click="nextPage">Payment <i class="fa fa-next"></i></button>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ if (is_active_sidebar('sidebar-1')) : ?>
                         </div>
                         <div class="card-footer">
                             <button class="prev" @click="previousPage($event)"><i class="fa fa-arrow-left"></i>&nbsp;Back</button>
-                            <button>Submit Payment</button>
+                            <button class='has-loader' @click="onSubmitPayment()">Submit Payment</button>
                         </div>
                 </form>
                 </div>
@@ -126,7 +126,7 @@ if (is_active_sidebar('sidebar-1')) : ?>
                         <p class="maps_document_instructions">We have reveiced your application.</p>
                     </div>
                     <div class="card-footer">
-                        <button @click="closeWizzard()">Back to Profile Settings</button>
+                        <button @click="closeWizzard(true)">Back to Profile Settings</button>
                     </div>
                 </div>
                 

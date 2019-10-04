@@ -5,6 +5,8 @@
  * Description: Prototyping custom features on the top of wordpress.
  */
 
+use um\core\Date_Time;
+
 require('vendor/autoload.php');
 
 /*
@@ -254,6 +256,7 @@ function maps_show_extra_profile_fields($user) {
   
     if(!empty($_POST['maps_verified_at'])){
         update_user_meta( $user_id, 'maps_verified_at', $_POST['maps_verified_at'] );
+
     }
   }
   add_action('edit_user_profile_update', 'maps_store_verified_at');
@@ -263,3 +266,21 @@ function maps_show_extra_profile_fields($user) {
     wp_enqueue_script( 'admin-js', plugins_url( 'masandpass/assets/js/admin.js' , dirname(__FILE__) ) );
   }
   add_action('admin_enqueue_scripts', 'maps_load_admin_script');
+
+  add_action( 'um_cover_area_content', 'maps_profile_cover_area_content', 10, 1 );
+  function maps_profile_cover_area_content( $user_id ) {
+    // your code here
+    $verifiedAt = get_user_meta($user_id, 'maps_verified_at', true);
+    
+    if(!empty($verifiedAt)) {
+        $badgeClass = 'show';
+    } else {
+        $badgeClass = 'hide';
+    }
+
+    $badge = "<div id='verified_badge' class='$badgeClass'>".
+    "<i class='checkmark um-faicon-check'></i>".
+    "</div>";
+
+    echo $badge;
+  }

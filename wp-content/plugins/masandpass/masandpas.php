@@ -123,8 +123,9 @@ function maps_handle_payment()
     $token = $input['stripeToken'];
     // compose data
     try{
+        // To-do : Add credentials and price in configuration
         \Stripe\Stripe::setApiKey('sk_test_5eMtw9Slaxf5ErolPm17PBfd00zQGsi2xW');
-        $charge = \Stripe\Charge::create(['amount' => 2000, 'currency' => 'gbp', 'source' => $token]);
+        $charge = \Stripe\Charge::create(['amount' => 995, 'currency' => 'gbp', 'source' => $token]);
         update_user_meta($user_id, 'maps_paid_at', date('Y-m-d H:i:s'));
         update_user_meta($user_id, 'maps_transaction_id', $charge->id);
 

@@ -111,7 +111,7 @@ if (is_active_sidebar('sidebar-1')) : ?>
                         </div>
                         <div class="card-footer">
                             <button class="prev" @click="previousPage($event)"><i class="fa fa-arrow-left"></i>&nbsp;Back</button>
-                            <button class='has-loader' @click="onSubmitPayment()">Submit Payment</button>
+                            <button class='has-loader' @click="onSubmitPayment()">Pay £9.95</button>
                         </div>
                 </form>
                 </div>

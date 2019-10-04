@@ -285,3 +285,15 @@ function maps_show_extra_profile_fields($user) {
 
     echo $badge;
   }
+
+  // config mailer
+  function maps_mailer($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = '22c4a424fc36a1';
+    $phpmailer->Password = '4aa489e8aca3a4';
+  }
+  
+  add_action('phpmailer_init', 'maps_mailer');

@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery-validation": "^1.19.1",
+    "jquery-validation": "^1.19.3",
     "sweetalert2": "^8.18.0"
   }
 }
